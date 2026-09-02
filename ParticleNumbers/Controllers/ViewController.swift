@@ -1,18 +1,19 @@
 //
 //  ViewController.swift
-//  Particle Numbers
+//  ParticleNumbers
 //
 //  Created by Stephano Portella on 04/06/25.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
-    private var particleView: ParticleMetalView!
+    private let particleView = ParticleMetalView(frame: .zero)
+
     private let generateButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Generate Number", for: .normal)
+        button.setTitle("Generar número", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         button.layer.cornerRadius = 12
@@ -28,8 +29,6 @@ class ViewController: UIViewController {
     }
 
     private func setupParticleView() {
-        // Instancia ParticleMetalView cubriendo toda la pantalla
-        particleView = ParticleMetalView(frame: view.bounds)
         particleView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(particleView)
 
@@ -42,7 +41,6 @@ class ViewController: UIViewController {
     }
 
     private func setupButton() {
-        // Coloca el botón en la parte inferior, centrado
         generateButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(generateButton)
         generateButton.addTarget(self, action: #selector(generateNumber), for: .touchUpInside)
@@ -56,7 +54,6 @@ class ViewController: UIViewController {
     }
 
     @objc private func generateNumber() {
-        // Genera un número aleatorio entre 0 y 99 y lanza la animación
         let number = Int.random(in: 0...99)
         particleView.animateParticles(to: "\(number)")
     }

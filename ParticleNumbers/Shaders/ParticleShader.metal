@@ -1,6 +1,6 @@
 //
 //  ParticleShader.metal
-//  Particle Numbers
+//  ParticleNumbers
 //
 //  Created by Stephano Portella on 04/06/25.
 //
@@ -22,11 +22,12 @@ struct VertexOut {
 };
 
 vertex VertexOut vertexShader(const device Particle* particles [[buffer(0)]],
-                              uint vid [[vertex_id]]) {
+                              constant float& pointSize        [[buffer(1)]],
+                              uint vid                         [[vertex_id]]) {
     VertexOut out;
     out.position = float4(particles[vid].position, 0.0, 1.0);
     out.color = particles[vid].color;
-    out.pointSize = 4.0;
+    out.pointSize = pointSize;
     return out;
 }
 
