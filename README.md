@@ -7,6 +7,8 @@ vuelven a dispersarse. Existe como proyecto de portafolio para mostrar cómo
 combino render por GPU (Metal) con una interfaz UIKit hecha por código, y cómo
 convierto texto en posiciones destino para una animación de partículas.
 
+<img width="1387" height="712" alt="ParticleNumbers" src="https://github.com/user-attachments/assets/fea9d018-d191-4ef8-ac2f-4baf5d3208f3" />
+
 ---
 
 ## Tecnologías usadas
